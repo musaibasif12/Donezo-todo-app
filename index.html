@@ -1,13 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Todo</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donezo — Get it done</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#">
+          <img src="assets/donezo-logo.webp" alt="Donezo logo" />
+          <span>donezo</span>
+        </a>
+        <div>
+          <form id="search-form">
+            <input
+              type="text"
+              placeholder="Search your task"
+              id="search-input"
+              class="search-input"
+            />
+          </form>
+        </div>
+        <div class="sidebar-copy">
+          <p class="side-label">Your daily planner</p>
+          <h2>Small steps.<br /><em>Big finish.</em></h2>
+          <p>Keep your day clear, calm, and moving forward.</p>
+        </div>
+        <div class="focus-card">
+          <span class="focus-icon">✓</span>
+          <div>
+            <strong>Focus mode</strong><small>One task at a time</small>
+          </div>
+        </div>
+        <p class="sidebar-footer">Made for your momentum</p>
+      </aside>
+      <section class="workspace">
+        <header class="app-header">
+          <p class="eyebrow">Your task list</p>
+          <h1>What will you <em>finish</em> today?</h1>
+          <p class="subtitle">
+            Write it down. Cross it off. Feel the difference.
+          </p>
+        </header>
+        <section class="task-card">
+          <div class="card-heading">
+            <span>Tasks</span><span class="today">Today</span>
+          </div>
+          <form onsubmit="sendData(event)">
+            <input
+              type="text"
+              id="input"
+              placeholder="Add something you want to get done…"
+              autocomplete="off"
+            />
+            <button id="button-add">Add task <span>+</span></button>
+          </form>
+          <ul id="output"></ul>
+        </section>
+      </section>
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>
