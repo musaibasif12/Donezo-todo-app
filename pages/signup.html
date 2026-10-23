@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create a Donezo account and start organizing your day."
+    />
+    <title>Create an account — Donezo</title>
+    <link rel="icon" href="../assets/donezo-icon.png" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body class="signup-page">
+    <main class="signup-card">
+      <a class="brand signup-brand" href="../index.html">
+        <img src="../assets/donezo-icon.png" alt="" />
+        <span>donezo</span>
+      </a>
+
+      <header class="signup-heading">
+        <p class="eyebrow">A calmer day starts here</p>
+        <h1>Create your account</h1>
+        <p class="signup-description">
+          Sign up to keep your tasks organized and moving forward.
+        </p>
+      </header>
+
+      <form class="auth-form" id="signup-form">
+        <label for="email-input">Email address</label>
+        <input
+          id="email-input"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        />
+
+        <label for="password-input">Password</label>
+        <input
+          id="password-input"
+          name="password"
+          type="password"
+          placeholder="At least 6 characters"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        />
+
+        <label for="confirm-password-input">Confirm password</label>
+        <input
+          id="confirm-password-input"
+          name="confirm-password"
+          type="password"
+          placeholder="Enter your password again"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        />
+
+        <p
+          class="signup-message"
+          id="signup-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+        <button class="signup-button" type="submit">Create account</button>
+      </form>
+
+      
+
+      <p class="login-link">
+         <span>Already have an account?</span>
+        <a href="./login.html">Login</a>
+      </p>
+      <p class="signup-login">
+        <a href="./home.html">Back to Donezo</a>
+      </p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../scripts/signup-login.js" type="module"></script>
+  </body>
+</html>

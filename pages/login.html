@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Log in to Donezo and pick up where you left off."
+    />
+    <title>Log in — Donezo</title>
+    <link rel="icon" href="../assets/donezo-icon.png" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body class="signup-page login-page">
+    <main class="signup-card login-card">
+      <a class="brand signup-brand" href="./home.html">
+        <img src="../assets/donezo-icon.png" alt="" />
+        <span>donezo</span>
+      </a>
+
+      <header class="signup-heading">
+        <p class="eyebrow">Good to see you again</p>
+        <h1>Welcome back</h1>
+        <p class="signup-description">
+          Log in to get back to your tasks and keep your day moving.
+        </p>
+      </header>
+
+      <form class="auth-form login-form" id="login-form" method="post">
+        <label for="email-input">Email address</label>
+        <input
+          id="email-input"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        />
+
+        <label for="password-input">Password</label>
+        <input
+          id="password-input"
+          name="password"
+          type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        />
+
+        <p
+          class="login-message"
+          id="login-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+        <button class="login-button" type="submit">Log in</button>
+      </form>
+
+      <p class="login-link">
+        <span>New to Donezo?</span>
+        <a href="./signup.html">Create an account</a>
+      </p>
+      <p class="signup-login">
+        <a href="./home.html">Back to Donezo</a>
+      </p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../scripts/login.js"></script>
+  </body>
+</html>

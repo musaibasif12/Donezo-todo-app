@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donezo — Get it done</title>
+    <link rel="icon" href="../assets/donezo-icon.png" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <main class="app-shell" id="home">
+      <aside class="sidebar">
+        <!-- Brand and short tagline at the top of the sidebar. -->
+        <a class="brand sidebar-brand" href="#home">
+          <img src="../assets/donezo-icon.png" alt="" />
+          <span class="brand-copy">
+            <strong>donezo</strong>
+          </span>
+        </a>
+
+        <!-- Update link targets as more sections are added to the app. -->
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a class="nav-link is-active"  id="home-link"  aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" />
+            </svg>
+            <span>Home</span>
+          </a>
+          <a class="nav-link" id="task-link" >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="3" />
+              <path d="m8 12 2.5 2.5L16 9" />
+            </svg>
+            <span>Tasks</span>
+            <span class="nav-count">5</span>
+          </a>
+          <a class="nav-link" id="focus-mode-link" >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8" />
+              <circle cx="12" cy="12" r="3" />
+              <path d="m14 10 6-6" />
+            </svg>
+            <span>Focus Mode</span>
+          </a>
+          <a class="nav-link" id="insights-link"  >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 19v-4M10 19V9m5 10V5m5 14v-7" />
+            </svg>
+            <span>Insights</span>
+          </a>
+          <a class="nav-link"  id="settings-link" >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m10 3-.5 2.1a7 7 0 0 0-1.7 1L5.7 5l-2 3.5 1.7 1.4a7 7 0 0 0 0 2.1l-1.7 1.4 2 3.5 2.1-1.1a7 7 0 0 0 1.7 1L10 19h4l.5-2.2a7 7 0 0 0 1.7-1l2.1 1.1 2-3.5-1.7-1.4a7 7 0 0 0 0-2.1l1.7-1.4-2-3.5-2.1 1.1a7 7 0 0 0-1.7-1L14 3z" />
+              <circle cx="12" cy="11" r="2.5" />
+            </svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <!-- Decorative progress card; its mountain scene is drawn in CSS. -->
+        <section class="progress-card" aria-label="Daily progress">
+          <span class="progress-sprout" aria-hidden="true">✿</span>
+          <h2>Progress<br />not perfection.</h2>
+          <p>You're doing better than you think.</p>
+          <span class="progress-arrow" aria-hidden="true">›</span>
+          <span class="progress-mountains" aria-hidden="true"></span>
+        </section>
+
+        <a class="sidebar-signup" href="./signup.html">Create an account</a>
+      </aside>
+      <section class="workspace">
+        <header class="app-header">
+          <!-- Search stays connected to the existing todo-app script. -->
+          <form class="workspace-search" id="search-form" role="search">
+            <input
+              type="search"
+              placeholder="Search your tasks"
+              id="search-input"
+              class="search-input"
+              aria-label="Search your tasks"
+            />
+          </form>
+          <p class="eyebrow">Your task list</p>
+          <h1>What will you <em>finish</em> today?</h1>
+          <p class="subtitle">
+            Write it down. Cross it off. Feel the difference.
+          </p>
+        </header>
+        <section class="task-card" id="task-list">
+          <div class="card-heading">
+            <span>Tasks</span><span class="today">Today</span>
+          </div>
+          <form onsubmit="sendData(event)">
+            <input
+              type="text"
+              id="input"
+              placeholder="Add something you want to get done…"
+              autocomplete="off"
+            />
+            <button id="button-add">Add task <span>+</span></button>
+          </form>
+          <ul id="output"></ul>
+        </section>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../scripts/home.js"></script>
+  </body>
+</html>

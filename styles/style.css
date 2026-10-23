@@ -1,0 +1,703 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap");
+
+:root {
+  --ink: #17151d;
+  --muted: #827d91;
+  --violet: #8e72ed;
+  --violet-deep: #7354dc;
+  --yellow: #ffdfa0;
+  --line: #ece8f4;
+  --panel: #fffefd;
+  --page-background:
+    radial-gradient(ellipse at top left, #fff0c4 0, transparent 42%),
+    linear-gradient(135deg, #f7f5fc 0%, #f2edff 100%);
+  --index-background:
+    radial-gradient(ellipse at top left, rgb(255 240 196 / 24%) 0, transparent 45%),
+    linear-gradient(135deg, #fcfbfe 0%, #f8f6fc 100%);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+  background: var(--page-background);
+}
+body:not(.signup-page) {
+  background: var(--index-background);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: var(--index-background);
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  height: 100vh;
+  padding: 22px 18px;
+  overflow: hidden;
+  color: #ffffff;
+  background: #0c1220;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: max-content;
+  color: #17151d;
+  text-decoration: none;
+  font:
+    800 24px/1 "Plus Jakarta Sans",
+    sans-serif;
+  letter-spacing: -1.4px;
+}
+.brand img {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px #0004;
+}
+
+.sidebar-brand {
+  width: 100%;
+  color: #f8f8ff;
+  text-decoration: none;
+}
+.brand-copy strong,
+.brand-copy small {
+  display: block;
+}
+.brand-copy strong {
+  font:
+    600 10 "Plus Jakarta Sans",
+    sans-serif;
+  letter-spacing: -0.5px;
+}
+.brand-copy small {
+  margin-top: 4px;
+  color: #aeb4ca;
+  font-size: 9px;
+}
+
+/* Simple text-and-icon links keep the menu easy to edit in HTML. */
+.sidebar-nav {
+  display: grid;
+  gap: 10px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 42px;
+  padding: 0 12px;
+  border-radius: 10px;
+  color: #e3e6f2;
+  font-size: 12px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.nav-link:hover {
+  background: #ffffff12;
+}
+.nav-link.is-active {
+  color: white;
+  background: linear-gradient(110deg, #8058f5, #633df0);
+  box-shadow: 0 6px 16px #5b39df40;
+}
+.nav-link svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+.nav-link:first-child svg {
+  fill: currentColor;
+  stroke-width: 1.5;
+}
+.nav-count {
+  display: grid;
+  min-width: 18px;
+  height: 18px;
+  margin-left: auto;
+  padding: 0 5px;
+  border-radius: 6px;
+  color: #d9d3ff;
+  font-size: 10px;
+  font-weight: 700;
+  place-items: center;
+  background: #ffffff20;
+}
+.progress-card {
+  position: relative;
+  min-height: 190px;
+  margin-top: 1px;
+  padding: 16px 14px;
+  overflow: hidden;
+  border-radius: 13px;
+  color: #11172e;
+  background: linear-gradient(
+    165deg,
+    #7d83cf 0%,
+    #c2a8dc 38%,
+    #ffdaa3 73%,
+    #7794a8 100%
+  );
+}
+.progress-card h2,
+.progress-card p,
+.progress-sprout,
+.progress-arrow {
+  position: relative;
+  z-index: 1;
+}
+.progress-sprout {
+  color: #f7dc51;
+  font-size: 21px;
+}
+.progress-card h2 {
+  margin: 7px 0 5px;
+  font:
+    800 16px/1.15 "Plus Jakarta Sans",
+    sans-serif;
+  letter-spacing: -0.5px;
+}
+.progress-card p {
+  max-width: 125px;
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.4;
+}
+.progress-arrow {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  margin-top: 10px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  place-items: center;
+  background: #ffdf81;
+}
+/* Layered CSS shapes add a small mountain scene without image assets. */
+.progress-mountains {
+  position: absolute;
+  right: -12px;
+  bottom: 0;
+  left: 0;
+  height: 72px;
+  background:
+    linear-gradient(
+      145deg,
+      transparent 0 35%,
+      #415b7c 35.5% 55%,
+      transparent 55.5%
+    ),
+    linear-gradient(
+      35deg,
+      transparent 0 30%,
+      #253c5c 30.5% 62%,
+      transparent 62.5%
+    ),
+    linear-gradient(
+      155deg,
+      transparent 0 39%,
+      #6a84a0 39.5% 68%,
+      transparent 68.5%
+    ),
+    linear-gradient(15deg, #17283f, #48647a);
+  clip-path: polygon(
+    0 46%,
+    15% 29%,
+    27% 53%,
+    48% 12%,
+    68% 48%,
+    83% 20%,
+    100% 40%,
+    100% 100%,
+    0 100%
+  );
+}
+.sidebar-signup {
+  margin-top: auto;
+  color: #aeb4ca;
+  font-size: 11px;
+  text-align: center;
+  text-decoration: none;
+}
+.sidebar-signup:hover {
+  color: white;
+}
+.workspace {
+  height: 100vh;
+  min-width: 0;
+  padding: 62px clamp(28px, 6vw, 74px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgb(255 254 253 / 72%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+.app-header {
+  max-width: 620px;
+}
+.workspace-search {
+  max-width: 360px;
+  margin: 0 0 30px;
+  padding: 0;
+  border: 0;
+}
+.workspace-search .search-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+}
+.eyebrow {
+  margin: 0 0 14px;
+  color: #8a7baa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.app-header h1 {
+  max-width: 530px;
+  margin: 0;
+  font:
+    800 clamp(31px, 4vw, 47px)/1.05 "Plus Jakarta Sans",
+    sans-serif;
+  letter-spacing: -2.7px;
+}
+.app-header h1 em {
+  color: var(--violet-deep);
+  font-style: normal;
+}
+.subtitle {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+.task-card {
+  margin-top: 43px;
+  padding: 0 24px 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
+  box-sizing: border-box;
+  box-shadow:  8px 8px #0606060b;
+}
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 21px 24px 17px;
+  font:
+    700 14px "Plus Jakarta Sans",
+    sans-serif;
+}
+.today {
+  padding: 6px 10px;
+  border-radius: 99px;
+  color: #6f53cf;
+  font:
+    700 10px "DM Sans",
+    sans-serif;
+  background: #f0ebff;
+}
+form {
+  display: flex;
+  gap: 10px;
+  padding: 0 0 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+input {
+  flex: 1;
+  min-width: 0;
+  height: 51px;
+  padding: 0 15px;
+  border: 1px solid #ddd8ea;
+  border-radius: 12px;
+  outline: 0;
+  color: var(--ink);
+  font:
+    500 14px "DM Sans",
+    sans-serif;
+  background: #fff;
+  transition: 0.2s;
+}
+input:focus {
+  border-color: #9b82ec;
+  box-shadow: 0 0 0 4px #8e72ed18;
+}
+input::placeholder {
+  color: #aaa4b5;
+}
+button {
+  height: 51px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  font:
+    700 13px "DM Sans",
+    sans-serif;
+  cursor: pointer;
+  background: #17151d;
+  box-shadow: 0 8px 16px #17151d20;
+  transition: 0.2s;
+}
+form button span {
+  margin-left: 5px;
+  font-size: 17px;
+}
+button:hover {
+  transform: translateY(-2px);
+  background: var(--violet-deep);
+  box-shadow: 0 10px 19px #7354dc38;
+}
+ul {
+  min-height: 152px;
+  margin: 0;
+  padding: 0 24px 10px;
+  list-style: none;
+}
+li {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 6px;
+  min-height: 67px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  color: #34303d;
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  animation: appear 0.25s ease;
+}
+li.empty-message {
+  grid-template-columns: minmax(0, 1fr);
+}
+li:last-child {
+  border-bottom: 0;
+}
+li .todo-checkbox {
+  grid-column: 1;
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  border: 1.5px solid #c9c2d8;
+  border-radius: 50%;
+  background: white;
+  box-shadow: none;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+}
+li .todo-checkbox:checked {
+  border-color: var(--violet-deep);
+  background: var(--violet-deep);
+}
+li .todo-checkbox:checked::after {
+  width: 8px;
+  height: 4px;
+  border-bottom: 1.5px solid white;
+  border-left: 1.5px solid white;
+  content: "";
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+li .todo-checkbox:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+li button {
+  height: 32px;
+  min-width: 64px;
+  padding: 0 10px;
+  border-radius: 9px;
+  font-size: 11px;
+  box-shadow: none;
+}
+li button:first-of-type {
+  color: #d25267;
+  background: #fff0f2;
+}
+li button:first-of-type:hover {
+  color: white;
+  background: #d25267;
+}
+li button:last-of-type {
+  color: #6b51c7;
+  background: #f1edff;
+}
+li button:last-of-type:hover {
+  color: white;
+  background: var(--violet-deep);
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 800px) {
+  body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .app-shell {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+  .sidebar {
+    height: auto;
+    gap: 16px;
+    padding: 20px;
+  }
+  .sidebar-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .progress-card {
+    min-height: 155px;
+  }
+  .sidebar-signup {
+    display: none;
+  }
+  .workspace {
+    height: auto;
+    min-height: 500px;
+    padding: 42px 30px;
+    overflow: visible;
+  }
+}
+@media (max-width: 480px) {
+  .app-shell {
+    min-height: 100vh;
+  }
+  .sidebar {
+    border-radius: 0 0 25px 25px;
+    padding: 18px;
+  }
+  .workspace {
+    padding: 36px 18px;
+  }
+  .app-header h1 {
+    font-size: 32px;
+    letter-spacing: -1.8px;
+  }
+  .task-card {
+    margin-top: 32px;
+  }
+  .card-heading,
+  form,
+  ul {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  form {
+    gap: 7px;
+  }
+  form button {
+    padding: 0 12px;
+    font-size: 0;
+  }
+  form button span {
+    margin: 0;
+    font-size: 20px;
+  }
+  li {
+    grid-template-columns: 18px minmax(0, 1fr) auto auto;
+    column-gap: 7px;
+    font-size: 14px;
+  }
+  li .todo-checkbox {
+    width: 17px;
+    min-width: 17px;
+    height: 17px;
+  }
+  li button {
+    min-width: 0;
+    height: 30px;
+    padding: 0 7px;
+    font-size: 10px;
+  }
+}
+
+body.signup-page {
+  display: grid;
+  min-height: 100vh;
+  height: auto;
+  padding: 32px 18px;
+  overflow: auto;
+  place-items: center;
+  background: var(--page-background);
+}
+.signup-card {
+  width: min(100%, 460px);
+  padding: 38px;
+  border: 1px solid #ece8f4;
+  border-radius: 24px;
+  background: #fffefd;
+  box-shadow: 0 24px 70px #4a347d18;
+}
+.signup-brand {
+  margin: 0 auto;
+}
+.signup-heading {
+  margin-top: 34px;
+  text-align: center;
+}
+.signup-heading .eyebrow {
+  margin-bottom: 10px;
+}
+.signup-heading h1 {
+  margin: 0;
+  font:
+    800 clamp(26px, 7vw, 32px)/1.2 "Plus Jakarta Sans",
+    sans-serif;
+  letter-spacing: -1.4px;
+}
+.signup-description {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+form.auth-form {
+  display: grid;
+  gap: 9px;
+  margin-top: 26px;
+  padding: 0;
+  border: 0;
+}
+.auth-form label {
+  margin-top: 7px;
+  color: #34303d;
+  font-size: 13px;
+  font-weight: 600;
+}
+.auth-form input {
+  width: 100%;
+}
+.auth-form input.is-invalid {
+  border-color: #c03751;
+  box-shadow: 0 0 0 3px rgb(192 55 81 / 12%);
+}
+.auth-form .signup-button {
+  width: 100%;
+  margin-top: 5px;
+  background: var(--violet-deep);
+}
+.auth-form .signup-button:hover:not(:disabled) {
+  background: #5d3dbe;
+}
+.auth-form .signup-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+.auth-form .login-button {
+  width: 100%;
+  margin-top: 5px;
+  background: var(--violet-deep);
+}
+.auth-form .login-button:hover:not(:disabled) {
+  background: #5d3dbe;
+}
+.auth-form .login-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+.signup-message {
+  min-height: 20px;
+  margin: 3px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.login-message {
+  min-height: 20px;
+  margin: 3px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.login-message.is-error {
+  padding: 10px 12px;
+  border: 1px solid #f1c4cc;
+  border-radius: 10px;
+  color: #c03751;
+  background: #fff0f2;
+}
+.login-message.is-success {
+  color: #247a51;
+}
+.signup-message.is-error {
+  padding: 10px 12px;
+  border: 1px solid #f1c4cc;
+  border-radius: 10px;
+  color: #c03751;
+  background: #fff0f2;
+}
+.signup-message.is-success {
+  color: #247a51;
+}
+.login-link {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+.login-link a {
+  color: var(--violet-deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}
+.signup-login {
+  margin: 23px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+.signup-login a {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+.signup-login a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 30px 22px;
+  }
+}
